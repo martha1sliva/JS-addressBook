@@ -1,0 +1,62 @@
+//create 2 objects for address book
+var bob = {
+    firstName: "Bob",
+    lastName: "Jones",
+    phoneNumber: "(650) 777-7777",
+    email: "bob.jones@example.com"
+};
+
+var mary = {
+    firstName: "Mary",
+    lastName: "Johnson",
+    phoneNumber: "(650) 888-8888",
+    email: "mary.johnson@example.com"
+};
+
+//creates an array for address book
+var contacts = [bob, mary];
+
+// function prints first and last name
+function printPerson(person) {
+    console.log(person.firstName + " " + person.lastName);
+}
+
+// lists all contacts in address book by calling on printPerson function
+function list() {
+    // finds number of contacts
+	var contactsLength = contacts.length;
+	// loops through contacts to print first/last name
+	for (var i = 0; i < contactsLength; i++) {
+		printPerson(contacts[i]);
+	}
+}
+
+// search function to find match in address book
+function search(lastName) {
+    var contactsLength = contacts.length;
+    for (var i = 0; i < contactsLength; i++) {
+        // finds match in contacts as it loops through AB
+        if (lastName === contacts[i].lastName) {
+            printPerson(contacts[i]);
+        };
+    }
+};
+
+//searching for last name "Jones"
+search("Jones");
+        
+// add function to create new object and append to AB
+function add(firstName, lastName, email, phoneNumber) {
+    contacts[contacts.length] = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phoneNumber: phoneNumber
+    }
+};
+
+// add new object
+add("Laurel", "Smith", "laurel.smith@example.com", "(650) 999-9999");
+
+// list all names in AB
+list();
